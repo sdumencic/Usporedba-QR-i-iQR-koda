@@ -1,0 +1,64 @@
+\chapter{Standardni QR kod}
+
+\section{Općenito o standardnim QR kodovima}
+Već u uvodu je spomenuto da postoje različiti oblici QR kodova, međutim standardni oblik QR koda također ima različite verzije. Verzije QR koda sežu od verzije 1 do verzije 40. Svaka od verzija ima svoj izgled koji se razlikuje po količini modula od kojih je sastavljena matrica QR koda. Što je veći broj verzije QR koda, to je veća količina podataka koja se može pohraniti. 
+
+
+\section{Izgled standardnog QR koda}
+Minimalne dimenzije QR koda su $21 \times $21 modula (verzija 1) što u slučajevima kad se sprema dovoljno malen broj podataka rezultira u neiskorištenom prostoru.
+Maksimalne dimenzije QR koda su $177 \times $177, to omogućava pohranu od oko 7 000 znakova. %7089
+
+Verzija QR koda povećava se dimenzijama, gdje nadodajemo 4 modula u oba smjera. Dakle, verzija dva sastoji se od $25 \times $25 modula i tako sve do verzije 40 koja je dimenzija $177 \times $177 modula
+
+\begin{figure}[!htpb]
+	  \begin{center}
+	    \subfloat[Verzija 1]{\label{fig:a} \includegraphics[width=2.5cm,keepaspectratio=true]{images/verzija1.png}}
+	    \hspace{1em}
+	    \subfloat[Verzija 2]{\label{fig:b}  %\\ % ukoliko se hoce iducu sliku u novi red
+        \includegraphics[width=2.5cm,keepaspectratio=true]{images/verzija2.png}}
+        \hspace{1em}
+        \subfloat[Verzija 40]{\label{fig:b}  %\\ % ukoliko se hoce iducu sliku u novi red
+        \includegraphics[width=2.5cm,keepaspectratio=true]{images/Qr-code-ver-40.png}}\\
+        \caption{Primjeri verzija QR koda}
+        \label{fig:ID_slike}
+	  \end{center}
+\end{figure}
+
+\newpage
+
+\section{Ispravljanje grešaka i oštećenja}
+Kod standardnog QR koda postoje 4 različite razine ispravka oštećenja: 
+
+
+%%%%%%%%% tabela
+\renewcommand{\arraystretch}{1.2}  % prilagodjava vertikalni razmak izmedju redaka cijele tabele
+    \begin{table}[!htbp]
+    \caption{Razine ispravka oštećenja}
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Redni broj razine za ispravak & Razina & Približan postotak koda koji se može ispraviti \\ [0.5ex]  % oblik [0.5ex] je pojedinacni oblik reguliranja vertikalnoga razmaka izmedju redataka tabele koji vrijedi za specificno mjesto na kojem je navedeno. (Bolje je koristiti \arraystretch oblik prije tabele.)
+        \hline \hline
+        1. & L & 7\% \\ \hline
+        2. & M & 15\% \\ \hline
+        3. & Q & 25\% \\ \hline
+        4. & H & 30\% \\\hline
+    \end{tabular}
+    \label{tab:ID_tabele}
+    \end{table}
+
+Slova L, M, Q i H dolaze od engleskih riječi koja označavaju količinu (u ovom slučaju postotak ispravljanja). L (eng. Low), M (eng. Medium), Q (eng. Quartile) te H (eng. High).
+
+Primjerice, za tvornice u kojima je velika vjerojatnost da će se kod na neki način oštetiti ili zaprljati, potrebna je viša razina za ispravljanje grešaka, primjerice Q ili H razina. Najčešće se koristi razina M.
+
+\section{Primjena standardnog QR koda}
+Osim prvotne ideje za primjenu QR koda - praćenje automobilskih dijelova u tvornici, QR kod se proširio na zaista veliko područje korištenja/primjene. U svakodnevnom životu, QR kodovi su se počeli koristiti početkom desetljeća kada su ga najviše koristili Amerikanci. Primjena u to doba bila je znatno teža nego danas, s obzirom na manji broj ljudi koji su posjedovali pametne telefone. S razvojem tehnologije razvijao se i ovaj oblik tehnologije te je postao opće prihvaćen. 
+
+Jedan od primjera primjene je modernizacija putovanja prijevoznim sredstvima uz korištenje QR koda, koji možemo imati na mobitelu te se koristi umjesto fizičke putne karte. Ovakvih primjena je sve više jer su lako dostupne s obzirom na razvoj i dostupnost tehnologije koja je postala svakodnevni dio naših života. 
+
+Također, jedan od načina korištenja QR kodova je pohrana informacija poput linka na primjerice proizvodima, mjestima u gradu itd. S obzirom na to da većina ljudi razvijenih zemalja posjeduje pametni uređaj (najčešće smartphone), skeniranjem tih kodova se lako dođe do potrebnih informacija o proizvodu koji kupujemo, mjestu na kojem se nalazimo, ...
+
+Jedna primjena koja postaje sve popularnija je i plaćanje računa skeniranjem QR koda. S obzirom na enkripciju podataka ovaj način plaćanja je siguran. S obzirom na to da većina ljudi posjeduje pametni telefon, ovaj način plaćanja je vrlo jednostavan.
+
+Prema istraživanjima, u Europi i Sjevernoj Americi se 2018. godine udvostručio broj korisnika koji su očitali QR kodove u usporedbi s 2015. godinom\footnote{Istraživanje je proveo Global Web Index, 2019.}. To je dokaz da upotreba QR kodova i dalje raste jer omogućava jednostavniji svakodnevni život.
+

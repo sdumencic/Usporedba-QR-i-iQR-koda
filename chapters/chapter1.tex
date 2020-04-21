@@ -1,0 +1,193 @@
+\chapter{Osnovna svojstva QR kodova}
+
+
+
+
+
+\section{Struktura QR koda}
+Kao što je spomenuto već u uvodu, svaki QR kod sastoji se od matrice u kojoj se nalaze crni i bijeli moduli - kvadratići. Prema smještaju tih modula, čitač QR koda prepoznaje o kojim podatcima se radi. Ta matrica je okružena bijelim obrubom koji se naziva tiha zona (eng. Quiet Zone). QR kod se sastoji od sljedećih dijelova:
+
+\begin{itemize}
+ \setlength\itemsep{1ex} % prilagodjava vertikalni razmak izmedju stavki u listi. Prilagodite 0.5 vasem ukusu.
+    \item Područje kodiranja (eng. Encoding Region)
+    \item Tiha zona (eng. Quiet Zone)
+    \item Funkcijski uzorci (eng. Function Patterns)
+\end{itemize}
+
+\vspace{5mm} %5mm vertical space
+
+\setlength{\parindent}{0ex}Funkcijski uzorci (eng. Function Patterns) QR kodova moraju biti smješteni u točno određenim dijelovima QR koda kako bi osigurali mogućnost prepoznavanja orijentacije kod čitanja QR koda. Postoje 4 funkcijska uzorka. Funkcijski uzorci su:
+\begin{itemize}
+	    \begin{itemize} \item Uzorci pretraživača (eng. Finder Patterns) 
+	    \item separatori (eng. Separators)
+	    \item Vremenski uzorci (eng.Timing Patterns)
+	    \item Uzorci poravnanja (eng. Alignment Patterns)
+	    \end{itemize}
+    \end{itemize}
+\newpage
+\subsection{Uzorci pretraživača (eng. Finder Patterns)}
+\setlength{\parindent}{1cm}Ovaj uzorak je najuočljiviji kad se gleda QR kod. Prikazan je trima kvadratima koji se nalaze u trima uglovima matrice (gornji lijevi, gornji desni i donji lijevi ugao). \\
+Ovaj uzorak služi za orijentaciju čitanja koda.
+
+\begin{figure}[!htpb]
+	\begin{center}
+	\includegraphics[width=5cm,keepaspectratio=true]{images/qr_finder_pattern.PNG}
+	   
+    \caption{Lokacija uzoraka pretraživača}
+    \label{fig:ID_slike}
+	\end{center}
+\end{figure}
+
+\subsection{Separatori (eng. Separators)}
+\setlength{\parindent}{1cm}Separator je bijeli obrub oko uzorka pretraživača koji odjeljuje uzorke pretraživača od ostatka matrice.
+
+\begin{figure}[!htpb]
+	\begin{center}
+	\includegraphics[width=5cm,keepaspectratio=true]{images/separator.PNG}
+	   
+    \caption{Lokacija separatora}
+    \label{fig:ID_slike}
+	\end{center}
+\end{figure}
+
+\subsection{Vremenski uzorci (eng. Timing Patterns)}
+\setlength{\parindent}{1cm}U QR kodu nalaze se 2 vremenska uzorka: vertikalni i horizontalni. Sastoje se od bijelih i crnih modula i povezuju separatore. Vertikalni vremenski uzorak spaja separatore koji se nalaze oko gornjeg lijevog uzorka pretraživača i donjeg lijevog uzorka pretraživača. Horizontalni vremenski uzorak povezuje separatore koji se nalaze oko gornjeg lijevog i gornjeg desnog uzorka pretraživača. \\
+Ovi uzorci služe za određivanje  koordinata modula i informacije o verziji QR koda.
+
+\subsection{Uzorci poravnanja (eng. Alignment Patterns)}
+Uzorak poravnanja nalazi se u donjem desnom dijelu matrice. Sve verzije QR kodova nakon QR koda tipa 2 moraju sadržavati ovaj uzorak te njihov broj ovisi o verziji.
+
+\begin{figure}[!htpb]
+	\begin{center}
+	\includegraphics[width=5cm,keepaspectratio=true]{images/alignment.PNG}
+	   
+    \caption{Lokacija uzoraka poravnanja}
+    \label{fig:ID_slike}
+	\end{center}
+\end{figure}
+
+\subsection{Područje kodiranja (eng. Encoding region)}
+\setlength{\parindent}{1cm}Područje kodiranja služi za pohranu informacija o formatu i verziji, podatke i kodove za ispravljanje grešaka.
+Za informacije o formatu rezervirano je područje oko uzoraka pretraživača.
+Informacija o verziji nalazi se iznad donjeg lijevog uzorka pretraživača i lijevo od gornjeg desnog uzorka pretraživača.
+
+\subsection{Tiha zona (eng. Quiet Zone)}
+Zona koja ne sadrži podatke. Služi za odvajanje QR koda od ostalih uzoraka na površini na kojoj se nalazi kako ne bi došlo do pogreške prilikom čitanja koda.
+
+\newpage
+
+\section{Ispravljanje grešaka i oštećenja}
+\setlength{\parindent}{1cm}QR kodovi omogućuju ispravljanje grešaka (eng. error correction). To je omogućeno time što se u ključne riječi (codeword) podataka dodaju ključne riječi za ispravljanje pogrešaka. Na taj način prilikom čitanja koda, mogu se pročitati i kodovi koji su na neki način oštećeni. Matematička metoda kojom se postiže ispravljanje grešaka je pomoću  Reed-Solomon kodova. Također, postoje 4 različite razine ispravka oštećenja: 
+
+Razina ispravka oštećenja bira se na temelju uvjeta na kojima se nalazi te veličine QR koda. Ovisno o tome gdje i za što se QR kod koristi postoji potrebna razina error correction tehnologije koju se treba ukomponirati u kod. 
+%Pa tako primjerice za tvornice u kojima je velika vjerojatnost da će se kod na neki način oštetiti ili zaprljati, potrebna je viša razina za ispravljanje grešaka, primjerice Q ili H razina. Najčešće se koristi razina M.
+
+\begin{figure}[!htpb]
+	\begin{center}
+	\subfloat[Ispravljanje grešaka može se koristiti da bi se dizajnirao QR kod, jer zbog ispravljanja grešaka, slika koja se nalazi preko QR koda, ne ometa čitanje]{\label{fig:a} \includegraphics[width=5cm,keepaspectratio=true]{images/2_150_150DPI_ty_oerny_08_2011.jpg}}
+	\hspace{1em}
+	\subfloat[QR kod na slici je vidno oštećen tj. nedostaje dio koda te zbog ispravljanja pogrešaka to ne ometa čitanje koda]{\label{fig:b}  %\\ % ukoliko se hoce iducu sliku u novi red
+    \includegraphics[width=5cm,keepaspectratio=true]{images/800px-QR_Code_Damaged.jpg}}\\
+    \caption{Primjene ispravljanja grešaka}
+    \label{fig:ID_slike}
+	\end{center}
+\end{figure}
+
+
+\newpage
+\section{Proces kodiranja i dekodiranja QR koda}
+
+\subsection{Kodiranje QR koda}
+Kodiranje QR koda obavlja se u nekoliko koraka:
+
+\begin{enumerate}
+ \setlength\itemsep{1ex} 
+    \item Analiza podataka (eng. Data Analysis)
+    \item Kodiranje podataka (eng. Data encoding)
+    \item Kodiranje koda za ispravljanje grešaka (eng. Error Correction Coding)
+    \item Struktura završne poruke (eng. Structure Final Message)
+    \item Pozicioniranje modula u matricu (eng. Module Placement in Matrix)
+    \item Maskiranje podataka (eng. Data Masking)
+    \item Informacije o formatu i verziji (eng. Format and Version Information)
+\end{enumerate}
+
+\subsubsection{Analiza podataka (eng. Data Analysis)}
+QR standard ima 4 standardizirana načina za kodiranje teksta, a to su numerički, alfanumerički, bajtovi i Kanji \footnote{kineski znakovi korišteni u modernom japanskom jeziku}. Zajedničko svim standardiziranim načinima kodiranja je da kodiraju tekst kao niz bitova. Svaki način koristi drugačiju metodu prilikom pretvaranja teksta u bitove.
+
+Svaki od načina je optimiziran za kodiranje podataka u najkraćem mogućem nizu bitova. Prema tome, ovaj korak služi za prepoznavanje može li se tekst kodirati na neki od ovih načina i ako može, prepoznavanje i odabir načina koji je optimalan za tekst.
+
+Indikator načina (eng. Mode indicator) bira koji će se način koristiti.
+
+\subsubsection{Kodiranje podataka (eng. Data encoding)}
+Ovaj korak odnosi se na kodiranje teksta koji se prikazuje kao niz bitova. Podatci su odijeljeni u nizove od 8 bitova, dakle 1 bajt. 
+
+Indikator načina kodiranja, spomenut u prošlom koraku, je niz od 4 bita te svaki kodirani podatak mora započeti s odgovarajućim indikatorom načina.
+
+Također, postoji indikator za brojanje znakova (eng. Character Count Indicator) koji služi za brojanje znakova koje se kodira. On se postavlja nakon indikatora načina kodiranja i njegova duljina ovisi o verziji QR koda. 
+
+\subsubsection{Kodiranje koda za ispravljanje grešaka (eng. Error Correction Coding)}
+Za ispravljanje grešaka koristi se već spomenuta matematička metoda ispravljanja grešaka Reed-Solomon. Ta metoda koristi ključne riječi dobivene iz nizova bitova teksta kojeg želimo kodirati.
+
+Čitači QR kodova čitaju i ključne riječi podataka i ključne riječi za ispravljanje grešaka. Zatim čitač  uspoređuje nizove bitova ova dva dijela i zaključuje je li došlo do greške. Ukoliko je došlo do greške, čitač ju ispravlja i može pročitati QR kod.
+
+\subsubsection{Struktura završne poruke (eng. Structure Final Message)}
+Kodirani podatci se organiziraju u ispravan redoslijed.
+
+\subsubsection{Pozicioniranje modula u matricu (eng. Module Placement in Matrix)}
+Nakon postavljanja ključnih riječi u ispravan redoslijed, bitovi se postavljaju u QR kod matricu na određen način. 
+
+\subsubsection{Maskiranje podataka (eng. Data Masking)}
+Ovaj korak je potreban jer čitači QR koda mogu imati problema prilikom čitanja nekih uzoraka. Da bi se riješio taj problem, QR kod sadrži masku koja mijenja QR kod ovisno o uzorku.
+
+\subsubsection{Informacije o formatu i verziji (eng. Format and Version Information)}
+U QR kod se dodaje informacije o formatu i ukoliko je potrebno o verziji. To se radi na način da se u QR kod dodaju pikseli u određena područja matrice koja su nakon prethodnih koraka ostala nepopunjena. Pikseli vezani za format označavaju razinu ispravljanja grešaka i maske koje QR kod koristi. Pikseli vezani uz verziju se koriste samo u većim QR kodovima i  kodiraju veličinu matrice.
+
+\newpage
+
+\subsection{Dekodiranje QR koda}
+Dekodiranje QR koda obavlja se u nekoliko koraka:
+
+\begin{enumerate}
+ \setlength\itemsep{1ex} 
+    \item Prepoznavanje modula (eng. Recognizing Modules)
+    \item Dohvaćanje informacija o formatu (eng. Extract Format Information)
+    \item Određivanje informacija o verziji (eng. Determine Version Information)
+    \item Aktivacija maske (eng. Release Masking)
+    \item Uspostavljanje kodnih riječi za ispravljanje pogrešaka (eng. Restore Data and Error Correction Codewords)
+    \item Detekcija i ispravljanje grešaka (eng. Error Detection and Correction)
+    \item Dekodiranje kodnih riječi (eng. Decode Data Codewords)
+\end{enumerate}
+
+\subsubsection{Prepoznavanje modula (eng. Recognizing Modules)}
+
+Čitač QR koda razlikuje crne i bijele module kao binarne znamenke "1" ili "0".
+
+\subsubsection{Dohvaćanje informacija o formatu (eng. Extract Format Information)}
+
+Primjenjuje informacije o formatu na module od kojih je sačinjena matrica QR koda.
+
+\subsubsection{Određivanje informacija o verziji (eng. Determine Version Information)}
+
+Prema djelu QR koda gdje se nalaze informacije o verziji određuje o kojoj verziji QR koda se radi.
+
+\subsubsection{Aktivacija maske (eng. Release Masking)}
+U ovom dijelu procesa dekodiranja čitač QR koda primjenjuje masku dobivenu iz informacija o formatu, na područje kodiranja (eng. Encoding region).
+
+
+
+
+
+\subsubsection{Uspostavljanje kodnih riječi za ispravljanje pogrešaka (eng. Restore Data and Error Correction Codewords)}
+
+Iz matrice uspostavlja kodne riječi za ispravak grešaka.
+
+\subsubsection{Detekcija i ispravljanje grešaka (eng. Error Detection and Correction)}
+
+Ukoliko čitač QR koda otkrije grešku ili oštećenje koda, ispravlja ih kako bi mogao ispravno pristupiti podatcima.
+
+\subsubsection{Dekodiranje kodnih riječi (eng. Decode Data Codewords)}
+
+Kodne riječi se dijele u skupine prema kojima čitač QR koda zatim ispisuje podatak koji je bio pohranjen u QR kodu.
+
+
+

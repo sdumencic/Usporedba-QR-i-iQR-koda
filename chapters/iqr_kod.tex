@@ -1,0 +1,50 @@
+\chapter{iQR kodovi}
+\section{Općenito o iQR kodovima}
+
+iQR kodovi su, također kao i QR kodovi, 2D matrice koje omogućuju pohranu podataka te pomoću čitača dekodiranje te matrice i pristup onome što je pohranjeno u kodu. 
+
+iQR kodovi nastali su kao potreba za pohranjivanjem većeg broja podataka na manjoj površini. Na prvi pogled razlika možda i nije toliko očita, ali postoji. Glavna razlika je u tome, što kada se uzme QR kod i iQR kod jednakih dimenzija, u iQR kod se može pohraniti 80\% više podataka nego u QR kod. Također, za jednaku količinu podataka koju želimo spremiti u QR i iQR kod, iQR kod bi bio manjih dimenzija nego QR kod, točnije, iQR kod bio bi 30\% manji nego QR kod.
+
+\section{Izgled iQR koda}
+Minimalna dimenzija iQR koda je $9 \times $9 modula. To omogućava optimalno korištenje prostora s obzirom na to da se za manju količinu podataka može koristiti manje dimenzije nego kod QR kodova.
+Maksimalna veličina iQR koda je $422 \times $422 modula, to omogućava pohranu od oko 40 000 znakova.
+
+Prednost iQR koda je i u tome što ne mora nužno biti kvadratnog oblika, nego može biti i pravokutnik. S obzirom na to da je primjena kodova široka, ovo omogućava da se iQR kod optimalno namjesti na poziciju na predmetu na kojem se nalazi. Na primjer na zaobljene predmete u obliku primjerice valjka, lakše je uzduž postaviti pravokutni iQR kod, nego kvadratni, jer će biti lakše za očitati s obzirom da zbog zakrivljenosti predmeta neće doći do toliko velike deformacije koja bi uzrokovala otežano čitanje koda.
+
+Međutim, korištenje pravokutnog koda smanjuje kapacitet podataka koje se može pohraniti u matricu iQR koda. Tako maksimalne dimenzije postaju $43 \times $131 modula, a maksimalna pohrana je 1 202 znaka.
+
+\begin{figure}[!htpb]
+	\begin{center}
+	\includegraphics[width=7cm,keepaspectratio=true]{images/iqr.png}
+	   
+    \caption{Izgled kvadratnog i pravokutnog iQR koda}
+    \label{fig:ID_slike}
+	\end{center}
+\end{figure}
+
+\section{Ispravljanje grešaka i oštećenja}
+
+iQR kodovi omogućavaju ispravljanje grešaka u 6 razina. Međutim, treba pametno odabrati razinu ispravka, s obzirom na to da veća razina znači da je manja maksimalna količina podataka koju možemo pohraniti u kod. 
+
+\renewcommand{\arraystretch}{1.2}  % prilagodjava vertikalni razmak izmedju redaka cijele tabele
+\begin{table}[!htbp]
+    \caption{Razine ispravka oštećenja}
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Redni broj razine za ispravak & Razina & Približan postotak koda koji se može ispraviti \\ [0.5ex]  % oblik [0.5ex] je pojedinacni oblik reguliranja vertikalnoga razmaka izmedju redataka tabele koji vrijedi za specificno mjesto na kojem je navedeno. (Bolje je koristiti \arraystretch oblik prije tabele.)
+    \hline \hline
+    1. & L & 7\% \\ \hline
+    2. & M & 15\% \\ \hline
+    3. & Q & 25\% \\ \hline
+    4. & H & 30\% \\\hline
+    5. & S & 50\% \\ \hline
+    \end{tabular}
+    \label{tab:ID_tabele}
+\end{table}
+
+Razine L, M, Q i H jednake su kao i kod standardnog QR koda te omogućavaju ispravljanje od 7\% koda do 30\% koda. Međutim, iQR kod ima i 5. razinu ispravljanja grešaka - S razinu koja omogućava ispravak do 50\% koda. Ova razina je pogodna za primjenu na lokacijama gdje je mogućnost oštećenja koda velika.
+
+\section{Primjena iQR koda}
+%iQR nije još uvršten u standardnu primjenu od ISO-a\footnote{International Organization for Standardization} te se iz tog razloga i dalje primjenjuju samo u tvrtki koja je i krenula s idejom QR kodova, dakle u Denso Wave-u.
+Uporaba iQR koda nije toliko raširena s obzirom da je za većinu potreba dovoljan samo standardni QR kod. Također, većina pametnih uređaja nudi samo čitače za QR kodove. Iz tog razloga iQR kod se najviše koristi u tvornici iz koje je i potekla ideja QR kodova, dakle Denso Wave-u.
